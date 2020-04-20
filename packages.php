@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a8dcd37982745dce8e5114a75a8b4d05d53b101885f4ccc1f010c52f0e5e4e9e
-size 717
+<?php
+// This file automatically generates packages.json
+
+$files = glob("*.json");
+
+if ($files === false) {
+    $files = [];
+}
+
+$document = [
+    'minimumVersion' => 1,
+    'packages' => [],
+];
+
+foreach ($files as $file) {
+    $data = json_decode(file_get_contents($file));
+    if (isset($data->name) && isset($data->version)) {
+        $document['packages'][] = [
+            'name' => $data->name,
+            'title' => isset($data->title) ? $data->title : $data->name,
+            'version' => $data->version,
+            'location' => basename($file),
+            'priority' => 1,
+        ];
+    }
+}
+
+header("Content-Type: text/plain");
+echo json_encode($document, JSON_PRETTY_PRINT);

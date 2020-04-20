@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9b3ec99f36357c90c9f22152513aea8f287e754dde1d459ec433aa44a481a615
-size 220
+{
+  "minimumVersion" : 1,
+  "packages" : [
+    {
+      "title" : null,
+      "name" : "LagaCraft",
+      "version" : "2020-04-20-14-40-09",
+      "location" : "lagacraft.json",
+      "priority" : 0
+    }
+  ]
+}
